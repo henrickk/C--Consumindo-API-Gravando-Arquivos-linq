@@ -1,4 +1,5 @@
-﻿using ScreenSound_04.Modelos;
+﻿using Microsoft.VisualBasic;
+using ScreenSound_04.Modelos;
 
 namespace ScreenSound_04.Filtros
 {
@@ -30,6 +31,19 @@ namespace ScreenSound_04.Filtros
             foreach(var musica in  musicasDoArtista)
             {
                 Console.WriteLine($"-{musica.Nome}");
+            }
+        }
+
+        internal static void FiltrarMusicasEmCSharp(List<Musica> musicas)
+        {
+            var musicasEmCSharp = musicas
+                .Where(musicas => musicas.Tonalidade.Equals("C#"))
+                .Select(musicas => musicas.Nome)
+                .ToList();
+            Console.WriteLine("Músicas em C#: ");
+            foreach (var musica in musicasEmCSharp) 
+            {
+                Console.WriteLine($"-{musica}");
             }
         }
     }
